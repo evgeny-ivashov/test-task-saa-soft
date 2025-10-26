@@ -49,7 +49,7 @@ onMounted(() => {
         name="label"
         placeholder="Введите метки через ;"
         :maxlength="50"
-        @blur="updateField(account.id, 'label', account.label)"
+        @blur="updateField(account.id, 'label', $event.target.value)"
     />
     <BaseSelect
         v-model="account.type"
@@ -60,7 +60,7 @@ onMounted(() => {
         name="login"
         placeholder="Введите логин"
         :maxlength="100"
-        @blur="updateField(account.id, 'login', account.login)"
+        @blur="updateField(account.id, 'login', $event.target.value)"
     />
     <BaseInput
         required
@@ -70,7 +70,7 @@ onMounted(() => {
         name="password"
         placeholder="Введите пароль"
         :maxlength="100"
-        @blur="updateField(account.id, 'password', account.password)"
+        @blur="updateField(account.id, 'password', $event.target.value)"
     />
     <AccountDeleteButton :id="account.id"/>
   </div>
