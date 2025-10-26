@@ -17,7 +17,7 @@ const accountsStore = useAccountsStore();
     <AccountItem/>
   </AccountList>
   <AccountSuccess :isVisible="accountsStore.isSuccess"/>
-  <AccountDisplayList v-if="accountsStore.accounts.length" :accounts="accountsStore.accounts"/>
+  <AccountDisplayList :accounts="accountsStore.accounts"/>
 </template>
 
 <style scoped>

@@ -26,10 +26,7 @@ const model = computed({
     return props.modelValue ?? "";
   },
   set: (val) => {
-    const arr = val.split(";")
-        .map((space) => space.trim())
-        .map(text => ({ text }));
-    emit("update:modelValue", arr);
+    emit("update:modelValue", val);
   },
 })
 </script>

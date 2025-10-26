@@ -1,4 +1,5 @@
 import {defineStore} from 'pinia'
+import {STORAGE_KEY} from "../constants/constants.ts";
 
 export interface Account {
     id: number
@@ -12,8 +13,6 @@ interface State {
     accounts: Account[]
     isSuccess: boolean;
 }
-
-const STORAGE_KEY = 'accountsData';
 
 export const useAccountsStore = defineStore('accounts', {
     state: (): State => ({
@@ -32,7 +31,12 @@ export const useAccountsStore = defineStore('accounts', {
         },
         removeAccount(id: number) {
             this.accounts = this.accounts.filter((a) => a.id !== id);
-            this.saveToLocalStorage();
+
+            if (this.accounts.length === 0) {
+                localStorage.removeItem(STORAGE_KEY);
+            } else {
+                this.saveToLocalStorage();
+            }
         },
         updateAccount(id: number, updated: Partial<Account>) {
             const account = this.accounts.find(a => a.id === id)

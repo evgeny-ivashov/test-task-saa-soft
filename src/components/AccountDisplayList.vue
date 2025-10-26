@@ -9,7 +9,7 @@ defineProps<AccountDisplayListProps>();
 
 const formatLabel = (account: Account) => {
   if (Array.isArray(account.label)) {
-    return account.label.map(l => l.text).join("; ")
+    return account.label.map(l => l.text).join(";")
   }
   return account.label
 }
@@ -29,10 +29,10 @@ const formatLabel = (account: Account) => {
     <tbody>
     <tr v-for="(account, index) in accounts" :key="account.id">
       <td>{{ index + 1 }}</td>
-      <td v-if="account.label">{{ formatLabel(account) }}</td>
+      <td>{{ formatLabel(account) }}</td>
       <td>{{ account.type }}</td>
       <td>{{ account.login }}</td>
-      <td v-if="account.password">{{ account.password }}</td>
+      <td>{{ account.password ?? 'null' }}</td>
     </tr>
     </tbody>
   </table>
