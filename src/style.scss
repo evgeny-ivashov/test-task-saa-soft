@@ -7,6 +7,7 @@
 
 body {
   font-family: sans-serif;
+  padding: 10px;
 }
 
 button {
@@ -14,4 +15,8 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+input, select {
+  width: 190px
 }

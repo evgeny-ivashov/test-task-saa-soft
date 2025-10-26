@@ -2,12 +2,16 @@
 import {computed} from "vue";
 
 interface BaseInputProps {
-  type?: string;
-  placeholder?: string;
-  modelValue: string;
+  type?: 'text' | 'password'
+  placeholder?: string
+  modelValue: string
+  name?: string
 }
 
-const props = defineProps<BaseInputProps>()
+const props = withDefaults(defineProps<BaseInputProps>(), {
+  type: 'text',
+})
+
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
@@ -19,16 +23,20 @@ const model = computed({
 </script>
 
 <template>
-  <label class="baseInput">
-    <input
-        :type="type"
-        :placeholder="placeholder"
-        v-model="model"
-        class="base-input__field"
-        @input="$emit('update:modelValue', model)"
-    />
-  </label>
+  <input
+      :name="name || 'default'"
+      :type="type"
+      :placeholder="placeholder"
+      v-model="model"
+      @input="$emit('update:modelValue', model)"
+  />
 </template>
 
 <style scoped>
+input {
+  padding: 10px;
+  border-radius: 10px;
+  background: aliceblue;
+  border: 1px solid;
+}
 </style>

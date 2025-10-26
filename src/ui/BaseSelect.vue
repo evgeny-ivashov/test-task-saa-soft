@@ -18,14 +18,17 @@ const model = computed({
 </script>
 
 <template>
-  <label class="baseSelect">
-    <select v-model="model">
-      <option value="Локальная">Локальная</option>
-      <option value="LDAP">LDAP</option>
-    </select>
-  </label>
+  <select v-model="model" name="entryType">
+    <option value="Локальная">Локальная</option>
+    <option value="LDAP">LDAP</option>
+  </select>
 </template>
 
 <style scoped>
-
+select {
+  padding: 10px;
+  border-radius: 10px;
+  background: aliceblue;
+  border: 1px solid;
+}
 </style>

@@ -1,6 +1,6 @@
-import {defineStore} from 'pinia'
+import { defineStore } from 'pinia'
 
-interface Account {
+export interface Account {
     id: number
     label: string
     type: 'Локальная' | 'LDAP'
@@ -25,6 +25,9 @@ export const useAccountsStore = defineStore('accounts', {
                 login: '',
                 password: '',
             })
+        },
+        removeAccount(id: number) {
+            this.accounts = this.accounts.filter((a) => a.id !== id)
         },
     },
 })
