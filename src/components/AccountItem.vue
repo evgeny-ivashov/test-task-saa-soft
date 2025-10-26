@@ -22,11 +22,15 @@ const updateField = <K extends keyof Account>(
     accountsStore.updateAccount(id, {[field]: value});
   }
 
-
   const isLogin = account.login !== "";
   const isPassword = account.type === "LDAP" || (account.password && account.password !== "");
 
-  if (isLogin && isPassword) accountsStore.saveToLocalStorage();
+  if (isLogin && isPassword) {
+    accountsStore.showSuccess(true);
+    accountsStore.saveToLocalStorage();
+
+    setTimeout(() => accountsStore.showSuccess(false), 1000);
+  }
 };
 
 onMounted(() => {

@@ -4,6 +4,7 @@ import SubstrateInfoForLoginAndPass from "./components/SubstrateInfoForLoginAndP
 import AccountList from "./components/AccountList.vue";
 import AccountItem from "./components/AccountItem.vue";
 import {useAccountsStore} from "./store/accoutsStore.ts";
+import AccountSuccess from "./components/AccountSuccess.vue";
 
 const accountsStore = useAccountsStore();
 </script>
@@ -14,6 +15,7 @@ const accountsStore = useAccountsStore();
   <AccountList>
     <AccountItem/>
   </AccountList>
+  <AccountSuccess :isVisible="accountsStore.isSuccess"/>
 </template>
 
 <style scoped>

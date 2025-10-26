@@ -11,7 +11,7 @@ const accountsStore = useAccountsStore();
 </script>
 
 <template>
-<button @click="accountsStore.removeAccount(id)">Удалить</button>
+<button @click="accountsStore.removeAccount(id)">Удалить &#128163;</button>
 </template>
 
 <style scoped>

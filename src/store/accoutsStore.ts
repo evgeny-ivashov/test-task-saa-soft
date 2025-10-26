@@ -10,6 +10,7 @@ export interface Account {
 
 interface State {
     accounts: Account[]
+    isSuccess: boolean;
 }
 
 const STORAGE_KEY = 'accountsData';
@@ -17,6 +18,7 @@ const STORAGE_KEY = 'accountsData';
 export const useAccountsStore = defineStore('accounts', {
     state: (): State => ({
         accounts: [],
+        isSuccess: false,
     }),
     actions: {
         addAccount() {
@@ -51,5 +53,8 @@ export const useAccountsStore = defineStore('accounts', {
                 this.accounts = JSON.parse(saved)
             }
         },
+        showSuccess(bool: boolean) {
+            this.isSuccess = bool;
+        }
     },
 })
