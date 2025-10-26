@@ -14,7 +14,7 @@
   gap: 10px;
   background: aliceblue;
   width: fit-content;
-  margin-top: 20px;
+  margin: 20px 0;
 
   span {
     display: flex;

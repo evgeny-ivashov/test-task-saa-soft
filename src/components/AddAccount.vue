@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import {useAccountsStore} from "../store/accoutsStore.ts";
 
+const accountsStore = useAccountsStore();
 </script>
 
 <template>
-<button class="addAccount">
+<button class="addAccount" @click="accountsStore.addAccount()">
   Учетные записи +
 </button>
 </template>
